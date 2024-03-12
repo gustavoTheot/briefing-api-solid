@@ -9,7 +9,7 @@ export function Register(){
             <Description>
                 <h1>Que tal um guia para execução do seu projeto?</h1>
 
-                <span>Basta criar seu briefing</span>
+                <span>Basta criar seu <strong>briefing</strong></span>
             </Description>
 
             <Form>

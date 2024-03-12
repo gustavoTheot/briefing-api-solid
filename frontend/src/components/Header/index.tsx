@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { HeaderContainer, IconViva, SelectMenu } from "./style";
 
 export function Header(){
@@ -9,8 +10,16 @@ export function Header(){
             </IconViva>
 
             <SelectMenu>
-                <li>Criar Briefing</li>
-                <li>Listar Briefing</li>
+                <li>
+                    <Link to={'/'}>
+                        Criar Briefing
+                    </Link>
+                </li>
+                <li>
+                    <Link to={'/view'}>
+                    Listar Briefing
+                    </Link>
+                </li>
             </SelectMenu>
         </HeaderContainer>
     )

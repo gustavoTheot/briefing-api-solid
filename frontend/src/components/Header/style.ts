@@ -29,9 +29,13 @@ export const SelectMenu = styled.div`
 
     li{
         list-style: none;
-        color: ${props => props.theme['orange']};
         font-weight: 600;
 
         cursor: pointer;
+
+        a{
+            text-decoration: none;
+            color: ${props => props.theme['orange']};
+        }
     }
 `

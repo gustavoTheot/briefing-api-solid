@@ -9,7 +9,11 @@ export const ContainerRegister = styled.div`
 
 export const Description = styled.div`
     margin-top: 10rem;
-    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 `
 
 export const Form = styled.form`
@@ -35,11 +39,14 @@ export const Form = styled.form`
     }
 
     button{
+        margin-top: 2rem;
         width: 10rem;
         height: 3rem;
-        color: ${props => props.theme['ice']};
         border-radius: 8px;
         border: none;
+        cursor: pointer;
+
+        color: ${props => props.theme['ice']};
         background-color: ${props => props.theme['orange']};
 
         &:hover{
