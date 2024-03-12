@@ -2,6 +2,7 @@ version: '3'
 
 services: 
     api-solid-pg:
+        container_name: viva-moveis-api-solid
         image: bitnami/postgresql:latest
         ports: 
             - 5432:5432
