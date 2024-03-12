@@ -35,12 +35,12 @@ export class PrismaBriefingRepository implements BriefingRepository {
   }
 
   async delete(id: number) {
-    const briefingDelete = await prisma.briefing.delete({
+    await prisma.briefing.delete({
       where: {
         id,
       },
     })
 
-    return briefingDelete
+    return null
   }
 }

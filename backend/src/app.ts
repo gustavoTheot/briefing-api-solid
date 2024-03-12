@@ -1,12 +1,16 @@
-import { PrismaClient } from '@prisma/client'
 import fastify from 'fastify'
 import { env } from 'process'
 import { ZodError } from 'zod'
 import { router } from './http/routes'
+import cookie from '@fastify/cookie'
 
 export const app = fastify()
 
-app.register(router)
+app.register(router, {
+  prefix: 'create'
+})
+app.register(cookie)
+
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {

@@ -4,7 +4,7 @@ import { Briefing } from '@prisma/client'
 interface CreateBriefingUseCaseRequest {
   name: string
   description: string
-  state: string
+  state: 'negociação' | 'finalizado'| 'aprovado'
 }
 
 interface CreateBriefingUseCaseResponse {

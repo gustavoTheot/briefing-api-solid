@@ -1,10 +1,13 @@
 import { BriefingRepository } from "@/repositories/briefing-repository";
-import { Briefing } from "@prisma/client";
 import { BriefingDoesntExist } from "./error/briefing-doesnt-exist";
 
 interface UpdateBriefingUseCaseRequest{
     id: number, 
-    data: Briefing
+    data: {
+        name?: string,
+        description?: string
+        state?: 'negociação' | 'finalizado'| 'aprovado'
+    }
 }
 
 export class UpdateBriefingUseCase{
@@ -13,7 +16,7 @@ export class UpdateBriefingUseCase{
     async update({id, data}: UpdateBriefingUseCaseRequest){
         const verifyExistId = await this.briefingRepository.findById(id)
         if(verifyExistId === null){
-            throw new BriefingDoesntExist();
+            throw new BriefingDoesntExist("Briefing with id does not exist");
         }
 
         const newData = await this.briefingRepository.update(

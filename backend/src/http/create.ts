@@ -6,7 +6,7 @@ export async function createBriefing(request: FastifyRequest, reply: FastifyRepl
     const createBriefingBodySchema = z.object({
         name: z.string(),
         description: z.string(),
-        state: z.enum(['negociação', 'finalizado', 'aprovado'])
+        state: z.enum(['negociação', 'finalizado', 'aprovado']).default('negociação')
     })
 
     const {name, description, state} =  createBriefingBodySchema.parse(request.body)
