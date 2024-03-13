@@ -1,4 +1,4 @@
-### Instruções de Uso
+### Instruções de Uso 📋
 
 1. **Pré-Requisitos:**
    - Node.js
@@ -35,7 +35,7 @@ Por fim, execute o seguinte comando e verifique se o terminal retorna uma mensag
     npm run start:dev
     ```
 
-### Tecnologias Utilizadas
+### Tecnologias Utilizadas 🛠️
 
 - **Vitest:** Utilizado para realizar testes unitários.
 - **Prisma:** ORM utilizado para facilitar a interação entre o banco de dados e o código da aplicação.
