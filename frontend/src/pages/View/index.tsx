@@ -31,14 +31,18 @@ export function View() {
 
   useEffect(() => {
     fetchApi()
-  }, [])
+  }, [briefings])
 
   async function handleDelete(id: number) {
-    try {
-      await api.delete(`/delete/${id}`)
-      fetchApi()
-    } catch (error) {
-      alert('Problema ao tentar deletar o briefing. Tente novamente mais tarde')
+    if (confirm('Deseja remover esse briefing?')) {
+      try {
+        await api.delete(`/delete/${id}`)
+        fetchApi()
+      } catch (error) {
+        alert(
+          'Problema ao tentar deletar o briefing. Tente novamente mais tarde',
+        )
+      }
     }
   }
 
