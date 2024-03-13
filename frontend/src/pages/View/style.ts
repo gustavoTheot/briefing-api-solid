@@ -36,29 +36,35 @@ export const ContainerView = styled.div`
 `
 
 export const OrderState = styled.div`
-  button {
-    margin-top: 2rem;
-    width: 10rem;
-    height: 3rem;
+  margin-top: 2rem;
+
+  select {
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+    padding-left: 0.875rem;
+    width: 14rem;
+    height: 2.5rem;
     border-radius: 8px;
+
+    color: ${(props) => props.theme.orange};
+    background-color: ${(props) => props.theme.ice};
+  }
+
+  select,
+  option {
     border: none;
     cursor: pointer;
-
-    color: ${(props) => props.theme.ice};
-    background-color: ${(props) => props.theme.orange};
-
-    &:hover {
-      background-color: ${(props) => props.theme['orange-dark']};
-    }
   }
 `
 
-export const Table = styled.table`
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid ${(props) => props.theme['grey-100']};
-  border-collapse: collapse;
+export const ContainerTable = styled.div`
+  max-height: 40rem;
+  overflow-y: scroll;
+  padding: 12px;
+`
 
+export const Table = styled.table`
   td,
   th {
     padding-left: 1rem;
@@ -66,13 +72,15 @@ export const Table = styled.table`
 
   thead {
     tr {
-      background-color: ${(props) => props.theme.ice};
     }
     th {
+      background-color: ${(props) => props.theme.ice};
       text-align: start;
       height: 3.5rem;
 
       &:first-child {
+        border-top-left-radius: 8px;
+
         width: 16rem;
       }
       &:nth-child(2) {
@@ -91,6 +99,7 @@ export const Table = styled.table`
       &:nth-child(6) {
         text-align: center;
         width: 5rem;
+        border-top-right-radius: 8px;
       }
     }
   }

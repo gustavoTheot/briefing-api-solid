@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Header } from '../../components/Header'
-import { ContainerView, NoBriefing, OrderState, Table } from './style'
+import {
+  ContainerTable,
+  ContainerView,
+  NoBriefing,
+  OrderState,
+  Table,
+} from './style'
 import { api } from '../../lib/axios'
 import { Clipboard, PencilSimple, Trash } from 'phosphor-react'
 import { formatDate } from '../../utils/form-date'
@@ -18,6 +24,7 @@ export function View() {
   const [briefings, setBriefings] = useState<Briefing[]>([])
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [idBriefing, setIdBriefing] = useState<number>()
+  const [selectedState, setSelectedState] = useState<string>('')
 
   async function fetchApi() {
     try {
@@ -31,7 +38,7 @@ export function View() {
 
   useEffect(() => {
     fetchApi()
-  }, [briefings])
+  }, [])
 
   async function handleDelete(id: number) {
     if (confirm('Deseja remover esse briefing?')) {
@@ -55,10 +62,18 @@ export function View() {
     setOpenModal(true)
   }
 
+  function handleStateChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedState(event.target.value)
+  }
+
+  const filteredBriefings = selectedState
+    ? briefings.filter((briefing) => briefing.state === selectedState)
+    : briefings
+
   return (
     <>
       <Header />
-      {briefings === undefined || briefings.length === 0 ? (
+      {filteredBriefings === undefined || briefings.length === 0 ? (
         <NoBriefing>
           <span>
             Sua lista de <strong>briefing</strong> está vazia
@@ -69,56 +84,63 @@ export function View() {
       ) : (
         <ContainerView>
           <OrderState>
-            <button>FIltrar por estado</button>
+            <select onChange={handleStateChange} value={selectedState}>
+              <option value="">Selecione o Estado</option>
+              <option value="negociação">Negociação</option>
+              <option value="finalizado">Finalizado</option>
+              <option value="aprovado">Aprovado</option>
+            </select>
           </OrderState>
 
-          <Table>
-            <thead>
-              <tr>
-                <th>Nome do Cliente</th>
-                <th>Descrição da necessidade</th>
-                <th>Data da Criação</th>
-                <th>Estado</th>
-                <th>Remover</th>
-                <th>Editar</th>
-              </tr>
-            </thead>
+          <ContainerTable>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Nome do Cliente</th>
+                  <th>Descrição da necessidade</th>
+                  <th>Data da Criação</th>
+                  <th>Estado</th>
+                  <th>Remover</th>
+                  <th>Editar</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {briefings.map((item) => {
-                return (
-                  <tr key={item.id} onClick={() => handleClick(item.id)}>
-                    <td>{item.name}</td>
-                    <td>{item.description}</td>
-                    <td>{formatDate(item.dataCreate)}</td>
-                    <td>{item.state}</td>
-                    <td>
-                      <button onClick={() => handleDelete(item.id)}>
-                        <Trash size={24} />
-                      </button>
-                    </td>
-                    <td>
-                      <PencilSimple
-                        size={24}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleOpenModal(item.id)
-                        }}
-                      />
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
+              <tbody>
+                {filteredBriefings.map((item) => {
+                  return (
+                    <tr key={item.id} onClick={() => handleClick(item.id)}>
+                      <td>{item.name}</td>
+                      <td>{item.description}</td>
+                      <td>{formatDate(item.dataCreate)}</td>
+                      <td>{item.state}</td>
+                      <td>
+                        <button onClick={() => handleDelete(item.id)}>
+                          <Trash size={24} />
+                        </button>
+                      </td>
+                      <td>
+                        <PencilSimple
+                          size={24}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleOpenModal(item.id)
+                          }}
+                        />
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </Table>
+          </ContainerTable>
 
-            <UpdateBriefingModal
-              id={idBriefing}
-              openModal={openModal}
-              onCloseModal={() => {
-                setOpenModal(false)
-              }}
-            />
-          </Table>
+          <UpdateBriefingModal
+            id={idBriefing}
+            openModal={openModal}
+            onCloseModal={() => {
+              setOpenModal(false)
+            }}
+          />
         </ContainerView>
       )}
     </>
