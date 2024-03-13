@@ -1,4 +1,4 @@
-### Instruções de Uso
+### Instruções de Uso 📋
 
 1. **Pré-Requisitos:**
    - Node.js
@@ -20,8 +20,8 @@ Execute o seguinte comando no prompt de comando:
 
 4. Acessar a rota http lançada no prompt ao rodar a aplicação
 
-### Tecnologias Utilizadas
 
+### Tecnologias Utilizadas 🛠️
 - **Vite**: Servidor de desenvolvimento para React.js utilizando TypeScript.
 - **Axios**: Utilizado para integração com a API (biblioteca já consolidada).
 - **Zod**: Utilizado para validação de schemas, permitindo a tipagem dos dados de entrada da aplicação.
