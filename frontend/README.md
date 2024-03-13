@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+### Instruções de Uso
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. **Pré-Requisitos:**
+   - Node.js
+   - Docker
 
-Currently, two official plugins are available:
+2. **Instalação de Dependências (node_modules):**
+   Execute o seguinte comando no prompt de comando para instalar os pacotes necessários:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    ```shell
+    npm install
+    ```
 
-## Expanding the ESLint configuration
+3. **Execução da Aplicação:**
+Execute o seguinte comando no prompt de comando:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+    ```shell
+    npm run dev
+    ```
 
-- Configure the top-level `parserOptions` property like this:
+4. Acessar a rota http lançada no prompt ao rodar a aplicação
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Tecnologias Utilizadas
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Vite**: Servidor de desenvolvimento para React.js utilizando TypeScript.
+- **Axios**: Utilizado para integração com a API (biblioteca já consolidada).
+- **Zod**: Utilizado para validação de schemas, permitindo a tipagem dos dados de entrada da aplicação.
+- **React-hook-form**: Utilizado em conjunto com o Zod para tipagem, validação e construção dos formulários.
+- **Styled-Components**: Utilizada para estilização em JS.
+- **React-router-dom**: Biblioteca para auxiliar nas questões de rota da aplicação.
+- **phosphor-react**: Biblioteca para utilizar alguns ícones na aplicação.
