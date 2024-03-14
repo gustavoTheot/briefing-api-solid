@@ -1,5 +1,5 @@
-<img src="./assets/vivaMoveis.svg">
 
+![briefing](https://github.com/gustavoTheot/briefing-api-solid/assets/44641003/bf4e0e8a-79e3-470f-839d-ea8c64264e46)
 ### 📂 Conteúdo
 
 - [Features](#fet)
@@ -43,10 +43,10 @@ O backend da aplicação foi construida utilizando os conceitos do `SOLID`, pens
 1. **Clone o repositório:**
 
       ```bash
-      git clone <https://github.com/gustavoTheot/briefing-api-solid.git>
+      git clone https://github.com/gustavoTheot/briefing-api-solid.git
       ```
 
-2. Acesse o repositório do **[backend](./backend/README.md)** e **[frontend](./frontend/README.md)**
+2. Acesse o repositório do **[backend](./backend/readme.md)** e **[frontend](./frontend/README.md)**
 
 ### Autor
 
