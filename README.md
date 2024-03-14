@@ -1,5 +1,5 @@
-<img src="./assets/vivaMoveis.svg">
 
+![briefing](https://github.com/gustavoTheot/briefing-api-solid/assets/44641003/bf4e0e8a-79e3-470f-839d-ea8c64264e46)
 ### 📂 Conteúdo
 
 - [Features](#fet)
