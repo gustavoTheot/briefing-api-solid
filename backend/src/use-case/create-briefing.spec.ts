@@ -8,8 +8,11 @@ let createBriefingRepository: InMemoryBriefingUseRepositoryRepository
 let sut: CreateBriefingUseCase
 
 describe('Create briefing Use Case', () => {
-    createBriefingRepository = new InMemoryBriefingUseRepositoryRepository()
-    sut = new CreateBriefingUseCase(createBriefingRepository)
+    beforeEach(() => {
+        createBriefingRepository = new InMemoryBriefingUseRepositoryRepository()
+        sut = new CreateBriefingUseCase(createBriefingRepository)
+    })
+   
         
 
     it('Create briefing', async() => {  

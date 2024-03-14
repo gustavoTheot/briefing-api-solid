@@ -10,7 +10,7 @@ let find: FindByIdBriefingUseCase
 let cre: CreateBriefingUseCase
 
 
-describe('Create briefing Use Case', () => {
+describe('Find by id briefing Use Case', () => {
     beforeEach(() => {
         findByIdBriefingRepository = new InMemoryBriefingUseRepositoryRepository()
         find = new FindByIdBriefingUseCase(findByIdBriefingRepository)
@@ -19,7 +19,7 @@ describe('Create briefing Use Case', () => {
     })
     
 
-    it('Create briefing', async() => {  
+    it('find by id briefing', async() => {  
         const {briefing} = await cre.create({
             name: 'Pedro',
             description: 'Mesa de madeira',
