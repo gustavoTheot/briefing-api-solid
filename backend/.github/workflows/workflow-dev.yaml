@@ -1,0 +1,6 @@
+name: 'Validation des tests unitaires'
+
+on: 
+  pull_request:
+    branches:
+      'master'

@@ -2,7 +2,6 @@ import { describe } from "node:test"
 import { beforeEach, expect, it } from "vitest"
 import { CreateBriefingUseCase } from "./create-briefing-use-case"
 import { InMemoryBriefingUseRepositoryRepository } from "@/repositories/in-memory/in-memory-briefing-repository";
-import { UpdateBriefingUseCase } from "./update-briefing-use-case";
 import { FindByIdBriefingUseCase } from "./find-by-id-use-case";
 
 let findByIdBriefingRepository: InMemoryBriefingUseRepositoryRepository
