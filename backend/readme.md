@@ -1,45 +1,62 @@
-### Instruções de Uso 📋
+### 📂 Conteúdo
 
-1. **Pré-Requisitos:**
-   - Node.js
-   - Docker
+- [Instruções de Uso](#instrucoes)
+- [Tecnologia Utilizada](#tecUtilizada)
 
-2. **Instalação de Dependências (node_modules):**
+<a id="instrucoes"></a>
+
+### 📋 Instruções de Uso
+
+1. **Instalação de Dependências `(node_modules)`:**
    Execute o seguinte comando para instalar os pacotes necessários:
 
     ```shell
     npm install
     ```
 
-3. **Configuração de Variáveis de Ambiente:**
-Configure as variáveis de ambiente a partir do arquivo `.env.exemplo`.
+2. **Configuração de Variáveis de Ambiente** a partir do arquivo `.env.exemplo`.
 
-4. **Execução do Docker:**
-Execute o seguinte comando para iniciar o container Docker:
+3. **Execução do Docker** para construir o container e a imagem:
 
     ```shell
     docker compos up
     ```
 
-5. **Execução do Prisma:**
-Execute o seguinte comando para criar o banco de dados com o Prisma:
+4. **Execução do Prisma** para construir a coluna no banco de dados:
 
     ```shell
     npx prisma migrate dev
     ```
 
-6. **Execução da Aplicação:**
-Por fim, execute o seguinte comando e verifique se o terminal retorna uma mensagem de sucesso:
+5. **Execução da Aplicação:**
 
     ```shell
     npm run start:dev
     ```
 
-### Tecnologias Utilizadas 🛠️
+6. **Executando os testes:**
+Caso queria realizar a execução dos testes presentes no sistema, basta rodar no prompt:
 
-- **Vitest:** Utilizado para realizar testes unitários.
-- **Prisma:** ORM utilizado para facilitar a interação entre o banco de dados e o código da aplicação.
-- **Docker:** Utilizado para facilitar a utilização do banco de dados sem a necessidade de instalação de outros softwares.
-  - Nesse caso, foi utilizado o container `bitnami/postgresql`.
-- **TypeScript:** Utilizado para criar um código tipado.
-- **Dotenv:** Utilizado para gerenciar as variáveis de ambiente.
+    **Teste simples:**
+
+    ```shell
+    # Teste será feito através do prompt
+    npm run test
+
+    # Teste que ira utilizar uma interface web para apresentar os teste (precisa aceitar instalação o execurar o comando)
+    npm run test:ui
+
+    ```
+
+<a id="tecUtilizada"></a>
+
+### 🛠️ Tecnologias Utilizadas
+
+- **[Vitest](https://vitest.dev/):** Utilizado para realizar testes unitários.
+- **[Prisma](https://www.prisma.io/):** ORM utilizado para facilitar a interação entre o banco de dados e o código da aplicação.
+- **[Docker](https://www.docker.com/):** Utilizado para facilitar a utilização do banco de dados sem a necessidade de instalação de outros softwares.
+  - Nesse caso, foi utilizado a imagem [`bitnami/postgresql`](https://bitnami.com/stack/postgresql).
+- **[TypeScript](https://www.typescriptlang.org/):** Utilizado para criar um código tipado.
+- **[Dotenv](https://www.npmjs.com/package/dotenv):** Utilizado para gerenciar as variáveis de ambiente.
+
+**OBS**: Todas as bibliotecas utilizadas são consolidadas

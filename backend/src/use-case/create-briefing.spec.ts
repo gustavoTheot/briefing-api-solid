@@ -1,38 +1,27 @@
-import { describe } from "node:test"
+import { beforeEach, describe } from "node:test"
 import { expect, it } from "vitest"
 import { CreateBriefingUseCase } from "./create-briefing-use-case"
+import { InMemoryBriefingUseRepositoryRepository } from "@/repositories/in-memory/in-memory-briefing-repository";
+import { BriefingRepository } from "@/repositories/briefing-repository";
 
-interface Briefing{
-    id: number;
-    name: string;
-    description: string;
-    dateCreate: Date;
-    state: string;
-}
-
+let createBriefingRepository: InMemoryBriefingUseRepositoryRepository
+let sut: CreateBriefingUseCase
 
 describe('Create briefing Use Case', () => {
-    it('Create briefing', async() => {     
-        const createBriefing = new CreateBriefingUseCase({
-            async create(data): Briefing{
-                return{
-                    id: 1,
-                    name: data.name,
-                    description: data.description,
-                    dateCreate: new Date(),
-                    state: data.state
-                }
-            }
-        });
+    createBriefingRepository = new InMemoryBriefingUseRepositoryRepository()
+    sut = new CreateBriefingUseCase(createBriefingRepository)
+        
 
-        const {briefing} = await createBriefing.create({
-            name: 'Porta de Madeira',
-            description: 'Porta 190x200',
-            state: 'finalizado',
+    it('Create briefing', async() => {  
+        const {briefing} = await sut.create({
+            name: 'Pedro',
+            description: 'Mesa de madeira',
+            state: 'finalizado'
         })
 
-
         expect(briefing.state).toEqual('finalizado')
+        expect(briefing.id).toEqual(1)
+
     })    
 })
 

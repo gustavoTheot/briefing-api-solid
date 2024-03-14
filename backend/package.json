@@ -8,8 +8,8 @@
     "start": "node build/server.js",
     "start:dev": "tsx watch ./src/server.ts",
     "build": "tsup src --out-dir build",
-    "test": "vitest run --dir src/use-cases",
-    "test:watch": "vitest --dir src/use-cases",
+    "test": "vitest run --dir src/use-case",
+    "test:watch": "vitest --dir src/use-case",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
   },
@@ -19,6 +19,8 @@
   "devDependencies": {
     "@types/node": "^20.11.25",
     "@types/supertest": "^6.0.2",
+    "@vitest/coverage-v8": "^1.3.1",
+    "@vitest/ui": "^1.3.1",
     "prisma": "^5.10.2",
     "supertest": "^6.3.4",
     "tsup": "^8.0.2",
