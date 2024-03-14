@@ -1,5 +1,5 @@
 import { describe } from "node:test"
-import { beforeEach, expect, it, test } from "vitest"
+import { beforeEach, expect, it } from "vitest"
 import { DeleteBriefingUseCase } from "./delete-briefing-use-case"
 import { CreateBriefingUseCase } from "./create-briefing-use-case"
 import { InMemoryBriefingUseRepositoryRepository } from "@/repositories/in-memory/in-memory-briefing-repository"
